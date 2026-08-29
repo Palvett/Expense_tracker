@@ -5,11 +5,8 @@ import Dashboard from './pages/Dashboard'
 import Transactions from './pages/Transactions'
 import Budgets from './pages/Budgets'
 import Settings from './pages/Settings'
-import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
-  const [testValue, setTestValue] = useLocalStorage('test', 'world')
-  console.log(testValue)
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
