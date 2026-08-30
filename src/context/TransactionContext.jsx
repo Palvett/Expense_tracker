@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { TransactionContext } from './TransactionContext'
 import useLocalStorage from '../hooks/useLocalStorage'
 
 // Transaction shape:
@@ -10,8 +10,6 @@ import useLocalStorage from '../hooks/useLocalStorage'
 //   date: string,        // ISO format: '2026-08-29'
 //   note: string
 // }
-
-const TransactionContext = createContext(null)
 
 export function TransactionProvider({ children}) {
     const [transactions, setTransactions] = useLocalStorage('transactions', [])
