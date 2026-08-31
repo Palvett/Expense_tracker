@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { useCategories } from "../../hooks/useCategories";
+import { useTransactions } from "../../hooks/useTransactions";
 import { TRANSACTION_TYPES } from "../../utils/constants";
 import './TransactionForm.css'
 
-function TransactionForm() {
+function TransactionForm({ initialData, onSuccess }) {
     const { categories } = useCategories()
+    const { addTransaction, updateTransaction } = useTransactions()
 
-    const [ type, setType ] = useState(TRANSACTION_TYPES.EXPENSE)
-    const [ amount, setAmount ] = useState('')
-    const [ categoryId, setCategoryId ] = useState('')
-    const [ date, setDate] = useState('')
-    const [ note,setNote ] = useState('')
+    const isEditMode = Boolean(initialData)
+
+    const [ type, setType ] = useState(initialData?.type ?? TRANSACTION_TYPES.EXPENSE)
+    const [ amount, setAmount ] = useState(initialData?.amount?.toString() ?? '')
+    const [ categoryId, setCategoryId ] = useState(initialData?.categoryId ?? '')
+    const [ date, setDate] = useState(initialData?.date ?? '')
+    const [ note,setNote ] = useState(initialData?.note ?? '')
     const [ errors, setErrors ] = useState({})
 
     function validate() {
@@ -52,13 +56,31 @@ function TransactionForm() {
 
         if (!validate()) return
 
-        console.log({
+        const transactionData = {
             type,
             amount: parseFloat(amount),
             categoryId,
             date,
             note,
-        })
+        }
+
+        if (isEditMode) {
+            updateTransaction(initialData.id, transactionData)
+        } else {
+            addTransaction(transactionData)
+        }
+
+        if (onSuccess) {
+            onSuccess()
+        }
+
+        if (!isEditMode) {
+            setType(TRANSACTION_TYPES.EXPENSE)
+            setAmount('')
+            setCategoryId('')
+            setDate('')
+            setNote('')
+        }  
     }
 
     return (
