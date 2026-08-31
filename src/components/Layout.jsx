@@ -32,7 +32,7 @@ function Layout() {
                 <span>Toggle theme</span>
             </button>
         </aside>
-        <main>
+        <main className="content">
             <Outlet />
         </main>
     </div>

@@ -1,0 +1,100 @@
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 70%;
+  margin: 0 auto;
+  padding: 24px;
+  border: 2px solid #e2e2e2;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+
+.type-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.type-toggle button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.type-toggle button.active {
+  background: #333;
+  color: white;
+  border-color: #333;
+}
+
+input,
+select,
+textarea {
+  padding: 10px 12px;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 12px;
+}
+
+.char-count {
+  font-size: 12px;
+  color: #888;
+  text-align: right;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+}
+
+button[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 10px 18px;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+button[type="submit"]:hover {
+  background: #f1f1f1;
+}
+
+.type-toggle button.active {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border-color: #93c5fd;
+}

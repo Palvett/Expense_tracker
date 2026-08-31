@@ -14,7 +14,7 @@ function Dashboard() {
     }
     return (
         <div>
-            <h1>Dashboard</h1>
+            <h1 className="page-title">Dashboard</h1>
             <button onClick={handleTestAdd}>Add test</button>
             <p>Total transactions: {transactions.length}</p>
             <pre>{JSON.stringify(transactions, null, 2)}</pre>
