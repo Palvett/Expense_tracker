@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useCategories } from "../../hooks/useCategories";
 import { useTransactions } from "../../hooks/useTransactions";
 import { TRANSACTION_TYPES } from "../../utils/constants";
+import { formatCurrency } from "../../utils/formatCurrency";
 import './TransactionForm.css'
 
 function TransactionForm({ initialData, onSuccess }) {
@@ -16,6 +17,7 @@ function TransactionForm({ initialData, onSuccess }) {
     const [ date, setDate] = useState(initialData?.date ?? '')
     const [ note,setNote ] = useState(initialData?.note ?? '')
     const [ errors, setErrors ] = useState({})
+    const [ isAmountFocused, setIsAmountFocused] = useState(false)
 
     function validate() {
         const newErrors = {}
@@ -83,6 +85,10 @@ function TransactionForm({ initialData, onSuccess }) {
         }  
     }
 
+    const displayAmount = !isAmountFocused && amount && !isNaN(parseFloat(amount))
+        ? formatCurrency(parseFloat(amount))
+        : amount
+
     return (
         <form onSubmit={handleSubmit} className="transaction-form">
             <div className="form-group">
@@ -109,9 +115,11 @@ function TransactionForm({ initialData, onSuccess }) {
                 <label htmlFor="amount">Amount</label>
                 <input
                     id="amount"
-                    type="number"
+                    type={isAmountFocused ? 'number' : 'text'}
                     step="0.01"
-                    value={amount}
+                    value={displayAmount}
+                    onFocus={() => setIsAmountFocused(true)}
+                    onBlur={() => setIsAmountFocused(false)}
                     onChange={(e) => setAmount(e.target.value)}
                 />
                 {errors.amount && <span className="error">{errors.amount}</span>}
@@ -157,7 +165,9 @@ function TransactionForm({ initialData, onSuccess }) {
                 {errors.note && <span className="error">{errors.note}</span>}
             </div>
             <div className="form-actions">
-                <button type="submit">Save Transaction</button>
+                <button type="submit">
+                    {isEditMode ? 'Update Transaction' : 'Save Transaction'}
+                </button>
             </div>
         </form>
     )
