@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { Plus } from 'lucide-react'
 import TransactionForm from "../features/transactions/TransactionForm"
+import TransactionList from '../features/transactions/TransactionList'
 import Modal from '../components/Modal'
+import { useTransactions } from '../hooks/useTransactions'
 
 function Transactions() {
+  const { transactions } = useTransactions()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingTransaction, setEditingTransaction] = useState(null)
 
@@ -26,6 +29,8 @@ function Transactions() {
           Add Transaction
         </button>
       </div>
+
+      <TransactionList transactions={transactions} />
 
       {isModalOpen && (
         <Modal
