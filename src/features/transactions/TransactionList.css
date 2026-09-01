@@ -66,3 +66,19 @@
 .transaction-amount.expense {
   color: #dc2626;
 }
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  color: #555;
+}
+
+.icon-btn:hover {
+  background: #f1f1f1;
+}

@@ -15,6 +15,11 @@ function Transactions() {
     setIsModalOpen(true)
   }
 
+  function handleEditClick(transaction) {
+    setEditingTransaction(transaction)
+    setIsModalOpen(true)
+  }
+
   function handleCloseModal() {
     setIsModalOpen(false)
     setEditingTransaction(null)
@@ -30,7 +35,7 @@ function Transactions() {
         </button>
       </div>
 
-      <TransactionList transactions={transactions} />
+      <TransactionList transactions={transactions} onEdit={handleEditClick} />
 
       {isModalOpen && (
         <Modal

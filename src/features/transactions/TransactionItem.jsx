@@ -1,8 +1,9 @@
+import { Pencil } from 'lucide-react'
 import { formatCurrency } from "../../utils/formatCurrency";
 import { TRANSACTION_TYPES } from "../../utils/constants";
 import { useCategories } from '../../hooks/useCategories'
 
-function TransactionItem({ transaction }) {
+function TransactionItem({ transaction, onEdit }) {
     const { categories } = useCategories()
     const isIncome = transaction.type === TRANSACTION_TYPES.INCOME
     const category = categories.find((c) => c.id === transaction.categoryId)
@@ -25,6 +26,14 @@ function TransactionItem({ transaction }) {
         <span className={`transaction-amount ${isIncome ? 'income' : 'expense'}`}>
           {isIncome ? '+' : '-'} {formatCurrency(transaction.amount)}
         </span>
+        <button
+            type="button"
+            className="icon-btn"
+            onClick={() => onEdit(transaction)}
+            aria-label="Edit transaction"
+        >
+            <Pencil size={16} />
+        </button>
       </div>
     </div>
   )
