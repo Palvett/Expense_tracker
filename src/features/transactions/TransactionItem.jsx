@@ -1,9 +1,10 @@
-import { Pencil } from 'lucide-react'
+import { Pencil, Trash2 } from 'lucide-react'
 import { formatCurrency } from "../../utils/formatCurrency";
 import { TRANSACTION_TYPES } from "../../utils/constants";
 import { useCategories } from '../../hooks/useCategories'
+import './TransactionList.css'
 
-function TransactionItem({ transaction, onEdit }) {
+function TransactionItem({ transaction, onEdit, onDelete }) {
     const { categories } = useCategories()
     const isIncome = transaction.type === TRANSACTION_TYPES.INCOME
     const category = categories.find((c) => c.id === transaction.categoryId)
@@ -33,6 +34,14 @@ function TransactionItem({ transaction, onEdit }) {
             aria-label="Edit transaction"
         >
             <Pencil size={16} />
+        </button>
+        <button
+            type="button"
+            className="icon-btn icon-btn-danger"
+            onClick={() => onDelete(transaction)}
+            aria-label="Delete transaction"
+        >
+            <Trash2 size={16} />
         </button>
       </div>
     </div>

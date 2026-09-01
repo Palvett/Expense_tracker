@@ -3,12 +3,14 @@ import { Plus } from 'lucide-react'
 import TransactionForm from "../features/transactions/TransactionForm"
 import TransactionList from '../features/transactions/TransactionList'
 import Modal from '../components/Modal'
+import ConfirmModal from '../components/ConfirmModal'
 import { useTransactions } from '../hooks/useTransactions'
 
 function Transactions() {
-  const { transactions } = useTransactions()
+  const { transactions, deleteTransaction } = useTransactions()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingTransaction, setEditingTransaction] = useState(null)
+  const [deletingTransaction, setDeletingTransaction] = useState(null)
 
   function handleAddClick() {
     setEditingTransaction(null)
@@ -25,6 +27,19 @@ function Transactions() {
     setEditingTransaction(null)
   }
 
+  function handleDeleteClick(transaction) {
+    setDeletingTransaction(transaction)
+  }
+
+  function handleConfirmDelete() {
+    deleteTransaction(deletingTransaction.id)
+    setDeletingTransaction(null)
+  }
+
+  function handleCancelDelete() {
+    setDeletingTransaction(null)
+  }
+
   return (
     <div>
       <div className="page-header">
@@ -35,7 +50,11 @@ function Transactions() {
         </button>
       </div>
 
-      <TransactionList transactions={transactions} onEdit={handleEditClick} />
+      <TransactionList
+        transactions={transactions}
+        onEdit={handleEditClick}
+        onDelete={handleDeleteClick}
+      />
 
       {isModalOpen && (
         <Modal
@@ -48,6 +67,15 @@ function Transactions() {
             onSuccess={handleCloseModal}
           />
         </Modal>
+      )}
+
+      {deletingTransaction && (
+        <ConfirmModal
+          title="delete transaction?"
+          message={`This will permanently delete this ${deletingTransaction.type} of ${deletingTransaction.amount}. This cannot be undone.`}
+          onConfirm={handleConfirmDelete}
+          onCancel={handleCancelDelete}
+        />
       )}
     </div>
   )
