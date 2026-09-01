@@ -54,6 +54,7 @@ function Transactions() {
         transactions={transactions}
         onEdit={handleEditClick}
         onDelete={handleDeleteClick}
+        onAddClick={handleAddClick}
       />
 
       {isModalOpen && (
