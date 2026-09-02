@@ -49,3 +49,10 @@ a {
 .btn-primary:hover {
   background: #1e40af;
 }
+
+.btn-primary:disabled {
+  background: #93c5fd;
+  color: white;
+  opacity: 1;
+  cursor: not-allowed;
+}

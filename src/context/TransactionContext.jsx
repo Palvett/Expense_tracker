@@ -32,11 +32,20 @@ export function TransactionProvider({ children}) {
         setTransactions((prev) => prev.filter((t) => t.id !== id))
     }
 
+    function reassignCategory(oldCategoryId, newCategoryId) {
+        setTransactions((prev) =>
+            prev.map((t) =>
+                t.categoryId === oldCategoryId ? { ...t, categoryId: newCategoryId} : t
+            )
+        )
+    }
+
     const value = {
         transactions,
         addTransaction,
         updateTransaction,
         deleteTransaction,
+        reassignCategory,
     }
 
     return (
