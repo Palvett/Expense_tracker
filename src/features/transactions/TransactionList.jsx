@@ -1,9 +1,19 @@
-import { Receipt } from "lucide-react"
+import { Receipt, SearchX } from "lucide-react"
 import TransactionItem from "./TransactionItem"
-import './TransactionList.css'
 import EmptyState from "../../components/EmptyState"
+import './TransactionList.css'
 
-function TransactionList({ transactions, onEdit, onDelete, onAddClick }) {
+function TransactionList({ transactions, hasActiveFilters, onEdit, onDelete, onAddClick }) {
+    if (transactions.length === 0 && hasActiveFilters) {
+        return (
+            <EmptyState
+                icon={SearchX}
+                title="No results"
+                message="No transactions match your current filters. Try adjusting or clearing them."
+            />
+        )
+    }
+
     if (transactions.length === 0) {
         return (
             <EmptyState
