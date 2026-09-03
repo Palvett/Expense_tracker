@@ -1,0 +1,37 @@
+.budget-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.budget-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.budget-form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+
+.budget-form select,
+.budget-form input {
+  padding: 10px 12px;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.budget-form .error {
+  color: #dc2626;
+  font-size: 12px;
+}
+
+.budget-form .form-actions {
+  display: flex;
+  justify-content: center;
+}
