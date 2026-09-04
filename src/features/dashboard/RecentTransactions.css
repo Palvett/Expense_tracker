@@ -1,0 +1,33 @@
+.recent-transactions {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.recent-transactions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.recent-transactions-header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.view-all-link {
+  font-size: 13px;
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}
+
+.recent-transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
