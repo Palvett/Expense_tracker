@@ -1,0 +1,50 @@
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 90%;
+    margin: 0 auto 24px;
+}
+
+.summary-card {
+  padding: 18px;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.icon-income {
+  color: #16a34a;
+}
+
+.icon-expense {
+  color: #dc2626;
+}
+
+.icon-balance {
+  color: #3b82f6;
+}
+
+.summary-card-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.summary-card-value.income {
+  color: #16a34a;
+}
+
+.summary-card-value.expense {
+  color: #dc2626;
+}
