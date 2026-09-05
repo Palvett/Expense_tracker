@@ -1,6 +1,7 @@
 import SummaryCards from '../features/dashboard/SummaryCards'
 import RecentTransactions from '../features/dashboard/RecentTransactions'
 import CategorySpendingChart from '../features/dashboard/CategorySpendingChart'
+import SpendingOverTimeChart from '../features/dashboard/SpendingOverTimeChart'
 import { useTransactions } from '../hooks/useTransactions'
 import { getCurrentMonth } from '../utils/dateHelpers'
 
@@ -15,6 +16,7 @@ function Dashboard() {
 
             <div className="dashboard-charts">
                 <CategorySpendingChart transactions={transactions} month={month} />
+                <SpendingOverTimeChart transactions={transactions} month={month} />
             </div>
 
             <RecentTransactions transactions={transactions} />

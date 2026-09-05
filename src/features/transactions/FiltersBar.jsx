@@ -4,15 +4,19 @@ import { TRANSACTION_TYPES } from '../../utils/constants'
 import './FiltersBar.css'
 
 function FiltersBar({ filters, onFilterChange }) {
-    const { categories } = useCategories()
+  const { categories } = useCategories()
 
-    return (
+  return (
     <div className="filters-bar">
       <input
-        type="month"
+        type="text"
+        placeholder="YYYY-MM"
+        pattern="\d{4}-\d{2}"
+        title="Format: YYYY-MM, e.g. 2026-08"
         value={filters.month}
         onChange={(e) => onFilterChange('month', e.target.value)}
       />
+      
 
       <select
         value={filters.type}

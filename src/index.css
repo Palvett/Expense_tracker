@@ -4,7 +4,15 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Ubuntu,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 a {

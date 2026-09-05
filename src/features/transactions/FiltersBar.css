@@ -15,6 +15,17 @@
   font-size: 14px;
 }
 
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+}
+
 .search-input {
   display: flex;
   align-items: center;

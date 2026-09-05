@@ -18,7 +18,7 @@ function SummaryCards({ transactions, month }) {
 
 
     return (
-        <div className=" summary-cards">
+        <div className="summary-cards">
             <div className='summary-card'>
                 <div className="summary-card-header">
                     <span>Total Income</span>

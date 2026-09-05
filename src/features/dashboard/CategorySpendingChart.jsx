@@ -5,6 +5,7 @@ import { formatCurrency } from '../../utils/formatCurrency'
 import { TRANSACTION_TYPES } from '../../utils/constants'
 import EmptyState from '../../components/EmptyState'
 import { BarChart3 } from 'lucide-react'
+import './ChartCard.css'
 
 function CategorySpendingChart({ transactions, month }) {
     const { categories } = useCategories()
@@ -48,12 +49,18 @@ function CategorySpendingChart({ transactions, month }) {
         <div className="chart-card">
             <h3>Spending by Category</h3>
             <ResponsiveContainer width="100%" height={280}>
-                <BarChart data={chartData} layout="vertical" margin={{ left: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#eee" horizontal={false} />
-                    <XAxis type="number" fontSize={12} />
-                    <YAxis type="category" dataKey="name" fontSize={12} width={90} />
+                <BarChart data={chartData}  margin={{bottom: 30}}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#eee" vertical={false} />
+                    <XAxis
+                        dataKey="name"
+                        tick={{ fontSize: 12 }}
+                        angle={-30}
+                        textAnchor="end"
+                        interval={0}
+                    />
+                    <YAxis tick={{ fontSize: 12}} />
                     <Tooltip formatter={(value) => formatCurrency(value)} />
-                    <Bar dataKey="amount" radius={[0, 4, 4, 0]}>
+                    <Bar dataKey="amount" radius={[4, 4, 0, 0]}>
                         {chartData.map((entry) => (
                             <Cell key={entry.name} fill={entry.color} />
                         ))}
