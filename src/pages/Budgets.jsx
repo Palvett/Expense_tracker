@@ -2,13 +2,7 @@ import { useState } from "react"
 import BudgetForm from "../features/budgets/BudgetForm"
 import BudgetProgress from "../features/budgets/BudgetProgress"
 import { useBudgets } from "../hooks/useBudgets"
-
-function getCurrentMonth() {
-  const now = new Date()
-  const year = now.getFullYear()
-  const month = String(now.getMonth() + 1).padStart(2, '0')
-  return `${year}-${month}`
-}
+import { getCurrentMonth } from "../utils/dateHelpers"
 
 function Budgets() {
   const { budgets } = useBudgets()

@@ -2,13 +2,7 @@ import { useState } from 'react'
 import SummaryCards from '../features/dashboard/SummaryCards'
 import RecentTransactions from '../features/dashboard/RecentTransactions'
 import { useTransactions } from '../hooks/useTransactions'
-
-function getCurrentMonth() {
-    const now = new Date()
-    const year = now.getFullYear()
-    const month = String(now.getMonth() + 1).padStart(2, '0')
-    return `${year}-${month}`
-}
+import { getCurrentMonth } from '../utils/dateHelpers'
 
 function Dashboard() {
     const { transactions } = useTransactions()

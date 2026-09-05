@@ -1,14 +1,8 @@
 import { useState } from "react"
 import { useCategories } from "../../hooks/useCategories"
 import { useBudgets } from "../../hooks/useBudgets"
+import { getCurrentMonth } from "../../utils/dateHelpers"
 import './BudgetForm.css'
-
-function getCurrentMonth() {
-    const now = new Date()
-    const year = now.getFullYear()
-    const month = String(now.getMonth() + 1).padStart(2, '0')
-    return `${year}-${month}`
-}
 
 function BudgetForm({ onSuccess }) {
     const { categories } = useCategories()
