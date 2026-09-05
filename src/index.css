@@ -56,3 +56,11 @@ a {
   opacity: 1;
   cursor: not-allowed;
 }
+
+.dashboard-charts {
+  width: 90%;
+  margin: 0 auto 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
