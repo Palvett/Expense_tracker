@@ -25,7 +25,7 @@ function TransactionList({ transactions, hasActiveFilters, onEdit, onDelete, onA
             />
         )
     }
-    const sortedTransactions = [...transactions].sort(
+    const sortedTransactions = transactions.toSorted(
         (a, b) => new Date(b.date) - new Date(a.date)
     )
   return (

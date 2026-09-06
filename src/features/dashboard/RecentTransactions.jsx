@@ -5,8 +5,8 @@ import { Receipt } from 'lucide-react'
 import './RecentTransactions.css'
 
 function RecentTransactions({ transactions }) {
-    const recentTransactions = [...transactions]
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
+    const recentTransactions = transactions
+        .toSorted((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5)
     return (
         <div className="recent-transactions">

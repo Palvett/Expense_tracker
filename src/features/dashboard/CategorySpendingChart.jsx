@@ -29,7 +29,7 @@ function CategorySpendingChart({ transactions, month }) {
                     color: category?.color ?? '#cccccc',
                 }
             })
-            .sort((a, b) => b.amount - a.amount)
+            .toSorted((a, b) => b.amount - a.amount)
     }, [transactions, categories, month])
 
     if (chartData.length === 0) {
