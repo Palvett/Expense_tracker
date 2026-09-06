@@ -4,13 +4,15 @@ import { useBudgets } from "../../hooks/useBudgets"
 import { getCurrentMonth } from "../../utils/dateHelpers"
 import './BudgetForm.css'
 
-function BudgetForm({ onSuccess }) {
+function BudgetForm({ initialData, onSuccess }) {
     const { categories } = useCategories()
-    const { budgets, addBudget } = useBudgets()
+    const { budgets, addBudget, updateBudget } = useBudgets()
 
-    const [categoryId, setCategoryId] = useState('')
-    const [month, setMonth] = useState(getCurrentMonth())
-    const [limit, setLimit] = useState('')
+    const isEditMode = Boolean(initialData)
+
+    const [categoryId, setCategoryId] = useState(initialData?.categoryId ?? '')
+    const [month, setMonth] = useState(initialData?.month ?? getCurrentMonth())
+    const [limit, setLimit] = useState(initialData?.limit?.toString() ?? '')
     const [errors, setErrors] = useState({})
     
     function Validate() {
@@ -29,11 +31,13 @@ function BudgetForm({ onSuccess }) {
             newErrors.limit = 'Limit must be a positive number'
         }
 
-        const existingBudget = budgets.find(
-            (b) => b.categoryId === categoryId && b.month === month
-        )
-        if ( existingBudget) {
-            newErrors.category = 'A budget already exist for this category and month'
+        if (!isEditMode) {
+            const existingBudget = budgets.find(
+                (b) => b.categoryId === categoryId && b.month === month
+            )
+            if (existingBudget) {
+                newErrors.category = 'A budget already exists for this category and month'
+            }
         }
         
         setErrors(newErrors)
@@ -45,20 +49,26 @@ function BudgetForm({ onSuccess }) {
 
         if (!Validate()) return
 
-        const budgetdata = {
+        const budgetData = {
             categoryId,
             month,
             limit: parseFloat(limit),
         }
 
-        addBudget(budgetdata)
+        if (isEditMode) {
+            updateBudget(initialData.id, budgetData)
+        } else {
+          addBudget(budgetData)
+        }
 
         if (onSuccess) {
             onSuccess()
         }
 
-        setCategoryId('')
-        setLimit('')
+        if (!isEditMode) {
+            setCategoryId('')
+            setLimit('')
+        }
     }
 
     return (
@@ -69,6 +79,7 @@ function BudgetForm({ onSuccess }) {
                     id="budget-category"
                     value={categoryId}
                     onChange={(e) => setCategoryId(e.target.value)}
+                    disabled={isEditMode}
                 >
                     <option value="">Select a Category</option>
                     {categories.map((cat) =>(
@@ -87,6 +98,7 @@ function BudgetForm({ onSuccess }) {
                     type="month"
                     value={month}
                     onChange={(e) => setMonth(e.target.value)}
+                    disabled={isEditMode}
                 />
                 {errors.month && <span className="error">{errors.month}</span>}
             </div>
@@ -105,7 +117,7 @@ function BudgetForm({ onSuccess }) {
 
             <div className="form-actions">
                 <button type="submit" className="btn-primary">
-                    Set Budget
+                    {isEditMode ? 'Update Budget' : 'Set Budget'}
                 </button>
             </div>
         </form>

@@ -58,3 +58,10 @@
   color: #dc2626;
   font-weight: 500;
 }
+
+.budget-progress-header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
