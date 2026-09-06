@@ -1,9 +1,9 @@
 {
-    "categories": {
-        "correctness": "error",
-        "suspicious": "warn"
-    },
-    "env": {
-        "browser": true
-    }
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "env": {
+    "browser": true
+  }
 }
