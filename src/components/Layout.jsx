@@ -33,7 +33,9 @@ function Layout() {
             </button>
         </aside>
         <main className="content">
-            <Outlet />
+            <div className="page-container">
+                <Outlet />
+            </div>
         </main>
     </div>
   )

@@ -11,7 +11,7 @@ function Budgets() {
   return (
     <div>
       <h1 className="page-title">Budgets</h1>
-      <div style={{width: '70%', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
         <BudgetForm />
         <BudgetProgress budgets={budgets} month={selectedMonth} />
       </div>
