@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AlertTriangle, Pencil } from 'lucide-react'
+import { AlertTriangle, Pencil, Trash2 } from 'lucide-react'
 import { useTransactions} from '../../hooks/useTransactions'
 import { useCategories } from '../../hooks/useCategories'
 import { formatCurrency} from '../../utils/formatCurrency'
@@ -9,11 +9,15 @@ import EmptyState from '../../components/EmptyState'
 import Modal from '../../components/Modal'
 import BudgetForm from './BudgetForm'
 import './BudgetProgress.css'
+import { useBudgets } from '../../hooks/useBudgets'
+import ConfirmModal from '../../components/ConfirmModal'
 
 function BudgetProgress({ budgets, month}) {
     const { transactions } = useTransactions()
     const { categories } = useCategories()
+    const { deleteBudget } = useBudgets()
     const [editingBudget, setEditingBudget] = useState(null)
+    const [deletingBudget, setDeletingBudget] = useState(null)
 
     const monthBudgets = budgets.filter((b) => b.month === month)
 
@@ -35,6 +39,11 @@ function BudgetProgress({ budgets, month}) {
                     t.date.startsWith(month)
             )
             .reduce((sum, t) => sum + t.amount, 0)
+    }
+
+    function handleConfirmDelete() {
+        deleteBudget(deletingBudget.id)
+        setDeletingBudget(null)
     }
     return (
         <div className="budget-progress-list">
@@ -67,13 +76,21 @@ function BudgetProgress({ budgets, month}) {
                                 >
                                     <Pencil size={14} />
                                 </button>
+                                <button
+                                    type="button"
+                                    className="icon-btn icon-btn-danger"
+                                    onClick={() => setDeletingBudget(budget)}
+                                    aria-label={`Delete budget for ${category?.name ?? 'category'}`}
+                                >
+                                    <Trash2 size={14} />
+                                </button>
                             </div>
                         </div>
 
                         <div className="progress-bar-track">
                             <div
                                 className={`progress-bar-fill ${barColorClass}`}
-                                style={{ width: `${percentage}%`}}
+                                style={{ width: `${percentage}%` }}
                             />
                         </div>
 
@@ -95,6 +112,15 @@ function BudgetProgress({ budgets, month}) {
                         onSuccess={() => setEditingBudget(null)}
                     />
                 </Modal>
+            )}
+
+            {deletingBudget && (
+                <ConfirmModal
+                    title="Delete budget?"
+                    message={`This will permanently remove the budget for "${categories.find((c) => c.id === deletingBudget.categoryId)?.name ?? 'this category'}" (${month}). This cannot be undone.`}
+                    onConfirm={handleConfirmDelete}
+                    onCancel={() => setDeletingBudget(null)}
+                />
             )}
         </div>
     )
