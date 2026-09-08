@@ -5,13 +5,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: var(--z-modal);
   padding: 20px;
 }
 
 .modal-box {
-  background: white;
-  border-radius: 10px;
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
   max-width: 800px;
   width: 70%;
   max-height: 90vh;
@@ -23,25 +24,27 @@
   align-items: center;
   justify-content: space-between;
   padding: 18px 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .modal-header h3 {
   margin: 0;
   font-size: 16px;
+  color: var(--color-text);
 }
 
 .modal-close {
   border: none;
   background: none;
+  color: var(--color-text);
   cursor: pointer;
   display: flex;
   padding: 4px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .modal-close:hover {
-  background: #f1f1f1;
+  background: var(--color-sidebar-item-hover);
 }
 
 .modal-content {

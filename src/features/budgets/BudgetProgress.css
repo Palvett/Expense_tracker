@@ -1,13 +1,15 @@
 .budget-progress-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .budget-progress-item {
   padding: 16px;
-  border: 1px solid #e2e2e2;
-  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  color: var(--color-text);
 }
 
 .budget-progress-header {
@@ -19,34 +21,34 @@
 
 .budget-progress-amounts {
   font-size: 13px;
-  color: #666;
+  color: var(--color-text-secondary);
   font-weight: 500;
 }
 
 .progress-bar-track {
   width: 100%;
   height: 10px;
-  background: #f1f1f1;
-  border-radius: 999px;
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
 .progress-bar-fill {
   height: 100%;
-  border-radius: 999px;
-  transition: width 0.3s ease;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
 }
 
 .bar-normal {
-  background: #3b82f6;
+  background: var(--color-primary);
 }
 
 .bar-warning {
-  background: #eab308;
+  background: var(--color-warning);
 }
 
 .bar-over {
-  background: #dc2626;
+  background: var(--color-danger);
 }
 
 .over-budget-warning {
@@ -55,13 +57,12 @@
   gap: 6px;
   margin-top: 8px;
   font-size: 12px;
-  color: #dc2626;
+  color: var(--color-danger);
   font-weight: 500;
 }
 
 .budget-progress-header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

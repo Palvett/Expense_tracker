@@ -1,6 +1,6 @@
 .recent-transactions {
-    width: 100%;
-    margin: 0;
+  width: 100%;
+  margin: 0;
 }
 
 .recent-transactions-header {
@@ -13,11 +13,12 @@
 .recent-transactions-header h3 {
   font-size: 16px;
   margin: 0;
+  color: var(--color-text);
 }
 
 .view-all-link {
   font-size: 13px;
-  color: #1d4ed8;
+  color: var(--color-text-link);
   text-decoration: none;
   font-weight: 500;
 }

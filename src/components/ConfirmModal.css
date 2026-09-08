@@ -1,18 +1,19 @@
 .confirm-overlay {
   position: fixed;
   inset: 0;
-  background: #00000066;
+  background: rgb(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 200;
+  z-index: var(--z-confirm);
   padding: 20px;
 }
 
 .confirm-box {
-  background: white;
+  background: var(--color-bg-card);
+  color: var(--color-text);
   padding: 24px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   max-width: 360px;
   width: 100%;
 }
@@ -20,12 +21,13 @@
 .confirm-box h3 {
   margin: 0 0 8px;
   font-size: 17px;
+  color: var(--color-text);
 }
 
 .confirm-box p {
   margin: 0 0 20px;
   font-size: 14px;
-  color: #555;
+  color: var(--color-text-secondary);
 }
 
 .confirm-actions {
@@ -36,27 +38,30 @@
 
 .btn-secondary {
   padding: 8px 16px;
-  border: 1px solid #e2e2e2;
-  border-radius: 6px;
-  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-card);
+  color: var(--color-text);
   cursor: pointer;
   font-size: 14px;
+  transition: var(--transition-fast);
 }
 
 .btn-secondary:hover {
-  background: #f1f1f1;
+  background: var(--color-sidebar-item-hover);
 }
 
 .btn-danger {
   padding: 8px 16px;
   border: none;
-  border-radius: 6px;
-  background: #dc2626;
-  color: white;
+  border-radius: var(--radius-sm);
+  background: var(--color-danger);
+  color: var(--color-white);
   cursor: pointer;
   font-size: 14px;
+  transition: var(--transition-fast);
 }
 
 .btn-danger:hover {
-  background: #b91c1c;
+  background: var(--color-primary-dark);
 }
