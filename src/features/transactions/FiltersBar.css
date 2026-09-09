@@ -78,3 +78,17 @@
   color: var(--color-text);
   background: transparent;
 }
+
+@media (max-width: 767px) {
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .filters-bar select,
+  .search-input {
+    width: 100%;
+    flex: none;
+  }
+}

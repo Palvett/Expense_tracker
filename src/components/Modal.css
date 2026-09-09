@@ -50,3 +50,14 @@
 .modal-content {
   padding: 20px;
 }
+
+@media (max-width: 767px) {
+  .modal-header {
+    padding: 14px 16px;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+  
+}

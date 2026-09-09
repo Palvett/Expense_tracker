@@ -105,3 +105,9 @@ textarea {
   color: var(--color-primary);
   border-color: var(--color-primary);
 }
+
+@media (max-width: 767) {
+  .transaction-form button[types="submit"] {
+    width: 100%;
+  }
+}
