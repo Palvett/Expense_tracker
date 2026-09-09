@@ -9,3 +9,9 @@ export function getDaysInMonth(monthString) {
     const [year, month] = monthString.split('-').map(Number)
     return new Date(year, month, 0).getDate()
 }
+
+export function formatMonthLabel(monthString) {
+    const [year, month] = monthString.split('-').map(Number)
+    const date = new Date(year, month - 1, 1)
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+}

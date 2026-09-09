@@ -5,6 +5,7 @@ import { formatCurrency } from '../../utils/formatCurrency'
 import { TRANSACTION_TYPES } from '../../utils/constants'
 import EmptyState from '../../components/EmptyState'
 import { BarChart3 } from 'lucide-react'
+import { formatMonthLabel } from '../../utils/dateHelpers'
 import './ChartCard.css'
 
 function CategorySpendingChart({ transactions, month }) {
@@ -47,7 +48,7 @@ function CategorySpendingChart({ transactions, month }) {
 
     return (
         <div className="chart-card">
-            <h3>Spending by Category</h3>
+            <h3>Spending by Category for {formatMonthLabel(month)}</h3>
             <ResponsiveContainer width="100%" height={280}>
                 <BarChart data={chartData}  margin={{bottom: 30}}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#eee" vertical={false} />

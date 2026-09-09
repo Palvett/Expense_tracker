@@ -5,6 +5,7 @@ import { TRANSACTION_TYPES } from '../../utils/constants'
 import { getDaysInMonth } from '../../utils/dateHelpers'
 import EmptyState from '../../components/EmptyState'
 import { LineChartIcon } from 'lucide-react'
+import { formatMonthLabel } from '../../utils/dateHelpers'
 import './ChartCard.css'
 
 function SpendingOverTimeChart({ transactions, month }) {
@@ -45,7 +46,7 @@ function SpendingOverTimeChart({ transactions, month }) {
 
     return (
         <div className="chart-card">
-            <h3>Spending Over Time</h3>
+            <h3>Spending Over Time for {formatMonthLabel(month)}</h3>
             <ResponsiveContainer width="100%" height={280}>
                 <LineChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
