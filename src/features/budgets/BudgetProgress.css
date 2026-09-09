@@ -66,3 +66,15 @@
   align-items: center;
   gap: 10px;
 }
+
+@media (max-width: 767px) {
+  .budget-progress-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .budget-progress-header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
