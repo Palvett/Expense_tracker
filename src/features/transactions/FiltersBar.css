@@ -45,7 +45,7 @@
 }
 
 .filter-category {
-  background-color: var(--color-warning);
+  background-color: var(--color-income-secondary);
 }
 
 .filter-month {
@@ -53,7 +53,7 @@
 }
 
 .filter-year {
-  background-color: var(--color-income);
+  background-color: var(--color-income-secondary);
 }
 
 .search-input {
