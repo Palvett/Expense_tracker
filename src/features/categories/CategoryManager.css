@@ -105,3 +105,13 @@
     margin-left: 0;
   }
 }
+
+@media (max-width: 767px) {
+  .category-row {
+    gap: 8px;
+  }
+
+  .category-usage {
+    margin-left: auto;
+  }
+}
