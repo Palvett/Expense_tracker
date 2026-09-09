@@ -50,3 +50,9 @@
 .summary-card-value.expense {
   color: var(--color-expense);
 }
+
+@media (max-width: 767px) {
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+}

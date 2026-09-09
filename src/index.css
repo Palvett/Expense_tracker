@@ -164,3 +164,10 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
+
+@media (max-width: 767px) {
+  .dashboard-charts {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}

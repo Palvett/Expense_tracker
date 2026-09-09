@@ -93,3 +93,19 @@
   border-color: var(--color-danger);
   color: var(--color-danger);
 }
+
+@media (max-width: 767px) {
+  .transaction-item {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .transaction-note {
+    max-width: 140px;
+  }
+
+  .transaction-right {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

@@ -14,3 +14,9 @@
   margin: 0 0 12px;
   color: var(--color-text);
 }
+
+@media (max-width: 767px) {
+  .chart-card {
+    padding: 14px;
+  }
+}
