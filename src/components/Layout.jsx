@@ -37,6 +37,13 @@ function Layout() {
 
                 <nav className="sidebar-nav">{navItems}</nav>
                 
+                <div className="sidebar-brand">
+                    <div className="sidebar-brand-icon">
+                        <Wallet size={22} />
+                    </div>
+                    <p className="sidebar-brand-text">Track every coin,<br />grow every goal.</p>
+                </div>
+                
                 <button className="theme-toggle" type="button" onClick={toggleTheme}>
                     {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
                     <span>{theme === 'light' ? 'Dark mode' : 'Light mode'}</span>
