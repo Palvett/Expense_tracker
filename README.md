@@ -59,7 +59,11 @@ Run locally
 
 ## 📷 Screenshots
 
-![Homepage Screenshot](coming soon)
+![Dashboard Screenshot](/expense-tracker/src/assets/images/dashboard.png)
+![Transaction Screenshot](/expense-tracker/src/assets/images/transactions.png)
+![Budgets Screenshot](/expense-tracker/src/assets/images/budgets.png)
+![Settings Screenshot](/expense-tracker/src/assets/images/settings.png)
+![Dark theme Screenshot](/expense-tracker/src/assets/images/theme.png)
 
 🧠 Challenges Faced
 
