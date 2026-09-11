@@ -10,7 +10,7 @@ import { ThemeProvider } from './context/ThemeProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/Expense_tracker">
       <ThemeProvider>
         <CategoryProvider>
           <TransactionProvider>

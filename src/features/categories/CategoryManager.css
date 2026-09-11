@@ -115,3 +115,18 @@
     margin-left: auto;
   }
 }
+
+@media (max-width: 400px) {
+  .color-picker {
+    gap: 4px;
+    width: 100%;
+  }
+
+  .color-swatch {
+    width: auto;
+    aspect-ratio: 1 / 1;
+    flex: 1;
+    min-width: 0;
+    max-width: 22px;
+  }
+}
