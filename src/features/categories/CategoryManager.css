@@ -1,0 +1,132 @@
+.category-manager {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.category-add-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  background: var(--color-bg-card);
+}
+
+.category-add-form input {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  background: var(--color-input-bg);
+  color: var(--color-text);
+}
+
+.color-picker {
+  display: flex;
+  gap: 6px;
+}
+
+.color-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.color-swatch.selected {
+  border-color: var(--color-text);
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  color: var(--color-text);
+}
+
+.category-usage {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.reassign-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reassign-form select {
+  padding: 10px 12px;
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  background: var(--color-input-bg);
+  color: var(--color-text);
+}
+
+@media (max-width: 767px) {
+  .category-add-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .category-add-form input {
+    width: 100%;
+  }
+
+  .color-picker {
+    justify-content: center;
+  }
+
+  .category-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .category-usage {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .category-row {
+    gap: 8px;
+  }
+
+  .category-usage {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .color-picker {
+    gap: 4px;
+    width: 100%;
+  }
+
+  .color-swatch {
+    width: auto;
+    aspect-ratio: 1 / 1;
+    flex: 1;
+    min-width: 0;
+    max-width: 22px;
+  }
+}

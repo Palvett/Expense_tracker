@@ -1,0 +1,113 @@
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  margin: 0;
+  padding: 24px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-sizing: border-box;
+  background: var(--color-bg-card);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.type-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.type-toggle button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-input-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 14px;
+  transition: var(--transition-fast);
+}
+
+.type-toggle button.active {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+input,
+select,
+textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  width: 100%;
+  background: var(--color-input-bg);
+  color: var(--color-text);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.error {
+  color: var(--color-danger);
+  font-size: 12px;
+}
+
+.char-count {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.transaction-form button[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 10px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.transaction-form button[type="submit"]:hover {
+  background: var(--color-sidebar-item-hover);
+}
+
+.type-toggle button.active {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+@media (max-width: 767) {
+  .transaction-form button[types="submit"] {
+    width: 100%;
+  }
+}
