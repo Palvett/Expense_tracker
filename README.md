@@ -12,7 +12,7 @@ A responsive personal expense tracker built with React which records income and 
 --Component design — reusable, composable UI (modals, empty states, badges, forms) shared across features rather than duplicated per page
 Responsive & accessible UI — a layout that adapts from mobile to desktop, plus a light/dark theme system driven by CSS variables
 --Shipping — a production build deployed to a static host, with a clean git history showing incremental, understandable progress
---Every line in this codebase should be explainable — the goal wasn't just a working app, but a genuine understanding of how each piece fits together.
+--Every line in this codebase should be explainable — the goal wasn't just a working app, but a genuine understanding of how each piece fits together which is still confusing to be honest.
 
 ## 📌 Real world problems solved by this project
 
