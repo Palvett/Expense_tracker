@@ -59,11 +59,15 @@ Run locally
 
 ## 📷 Screenshots
 
-![Dashboard Screenshot](/expense-tracker/src/assets/images/dashboard.png)
-![Transaction Screenshot](/expense-tracker/src/assets/images/transactions.png)
-![Budgets Screenshot](/expense-tracker/src/assets/images/budgets.png)
-![Settings Screenshot](/expense-tracker/src/assets/images/settings.png)
-![Dark theme Screenshot](/expense-tracker/src/assets/images/theme.png)
+![Dashboard Screenshot](/src/assets/images/dashboard.png)
+![Transaction Screenshot](/src/assets/images/transactions.png)
+![Budgets Screenshot](/src/assets/images/budgets.png)
+![Settings Screenshot](/src/assets/images/settings.png)
+![Dark theme Screenshot](/src/assets/images/theme.png)
+
+## 🔗 Live Demo
+
+Frontend:** [view the deployed app](https://expense-tracker-asyt-qi99dc4qg-the-future10.vercel.app)
 
 🧠 Challenges Faced
 
