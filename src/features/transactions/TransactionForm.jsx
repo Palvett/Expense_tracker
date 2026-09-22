@@ -22,9 +22,11 @@ function TransactionForm({ initialData, onSuccess }) {
     function validate() {
         const newErrors = {}
 
-        const parseAmount = parseFloat(amount)
-        if (!amount || isNaN(parseAmount) || parseAmount <= 0) {
+        const parsedAmount = parseFloat(amount)
+        if (!amount || isNaN(parsedAmount) || parsedAmount <= 0) {
             newErrors.amount = 'Amount must be a positive number'
+        } else if (!Number.isInterger(parsedAmount)) {
+            newErrors.amount = 'Amount must be a whole number (FCFA has no decimal places)'
         }
 
         if (!categoryId) {
@@ -60,7 +62,7 @@ function TransactionForm({ initialData, onSuccess }) {
 
         const transactionData = {
             type,
-            amount: parseFloat(amount),
+            amount: Math.round(parseFloat(amount)),
             categoryId,
             date,
             note,
@@ -116,7 +118,8 @@ function TransactionForm({ initialData, onSuccess }) {
                 <input
                     id="amount"
                     type={isAmountFocused ? 'number' : 'text'}
-                    step="0.01"
+                    step="1"
+                    min="1"
                     value={displayAmount}
                     onFocus={() => setIsAmountFocused(true)}
                     onBlur={() => setIsAmountFocused(false)}
