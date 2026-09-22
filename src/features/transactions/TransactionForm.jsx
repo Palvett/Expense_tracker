@@ -18,6 +18,7 @@ function TransactionForm({ initialData, onSuccess }) {
     const [ note,setNote ] = useState(initialData?.note ?? '')
     const [ errors, setErrors ] = useState({})
     const [ isAmountFocused, setIsAmountFocused] = useState(false)
+    const [ hasBlurredOnce, setHasBlurredOnce ] = useState(false)
 
     function validate() {
         const newErrors = {}
@@ -25,7 +26,7 @@ function TransactionForm({ initialData, onSuccess }) {
         const parsedAmount = parseFloat(amount)
         if (!amount || isNaN(parsedAmount) || parsedAmount <= 0) {
             newErrors.amount = 'Amount must be a positive number'
-        } else if (!Number.isInterger(parsedAmount)) {
+        } else if (!Number.isInteger(parsedAmount)) {
             newErrors.amount = 'Amount must be a whole number (FCFA has no decimal places)'
         }
 
@@ -87,7 +88,7 @@ function TransactionForm({ initialData, onSuccess }) {
         }  
     }
 
-    const displayAmount = !isAmountFocused && amount && !isNaN(parseFloat(amount))
+    const displayAmount = hasBlurredOnce && !isAmountFocused && amount && !isNaN(parseFloat(amount))
         ? formatCurrency(parseFloat(amount))
         : amount
 
@@ -122,7 +123,10 @@ function TransactionForm({ initialData, onSuccess }) {
                     min="1"
                     value={displayAmount}
                     onFocus={() => setIsAmountFocused(true)}
-                    onBlur={() => setIsAmountFocused(false)}
+                    onBlur={() => {
+                        setIsAmountFocused(false)
+                        setHasBlurredOnce(true)
+                    }}
                     onChange={(e) => setAmount(e.target.value)}
                 />
                 {errors.amount && <span className="error">{errors.amount}</span>}
