@@ -15,7 +15,7 @@ function BudgetForm({ initialData, onSuccess }) {
     const [limit, setLimit] = useState(initialData?.limit?.toString() ?? '')
     const [errors, setErrors] = useState({})
     
-    function Validate() {
+    function validate() {
         const newErrors = {}
 
         if (!categoryId) {
@@ -29,6 +29,8 @@ function BudgetForm({ initialData, onSuccess }) {
         const parsedLimit = parseFloat(limit)
         if (!limit || isNaN(parsedLimit) || parsedLimit <= 0) {
             newErrors.limit = 'Limit must be a positive number'
+        } else if (!Number.isInteger(parsedLimit)) {
+            newErrors.limit = 'limit must be a whole number (FCFA has no decimal places)'
         }
 
         if (!isEditMode) {
@@ -47,12 +49,12 @@ function BudgetForm({ initialData, onSuccess }) {
     function handleSubmit(e) {
         e.preventDefault()
 
-        if (!Validate()) return
+        if (!validate()) return
 
         const budgetData = {
             categoryId,
             month,
-            limit: parseFloat(limit),
+            limit: Math.round(parseFloat(limit)),
         }
 
         if (isEditMode) {
@@ -108,7 +110,8 @@ function BudgetForm({ initialData, onSuccess }) {
                 <input
                     id="budget-limit"
                     type="number"
-                    step="0.01"
+                    step="1"
+                    min="1"
                     value={limit}
                     onChange={(e) => setLimit(e.target.value)}
                 />
