@@ -7,6 +7,7 @@ import Modal from '../components/Modal'
 import ConfirmModal from '../components/ConfirmModal'
 import { useTransactions } from '../hooks/useTransactions'
 import useDebounce from '../hooks/useDebounce'
+import { formatCurrency } from '../utils/formatCurrency'
 
 function Transactions() {
   const { transactions, deleteTransaction } = useTransactions()
@@ -104,8 +105,8 @@ function Transactions() {
 
       {deletingTransaction && (
         <ConfirmModal
-          title="delete transaction?"
-          message={`This will permanently delete this ${deletingTransaction.type} of ${deletingTransaction.amount}. This cannot be undone.`}
+          title="Delete transaction?"
+          message={`This will permanently delete this ${deletingTransaction.type} of ${formatCurrency(deletingTransaction.amount)}. This cannot be undone.`}
           onConfirm={handleConfirmDelete}
           onCancel={handleCancelDelete}
         />

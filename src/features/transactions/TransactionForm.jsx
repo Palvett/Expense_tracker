@@ -140,7 +140,14 @@ function TransactionForm({ initialData, onSuccess }) {
                     onChange={(e) => setCategoryId(e.target.value)}
                 >
                     <option value="">Select a category</option>
-                    {categories.map((cat) => (
+                    {categories
+                        .filter((cat) => {
+                            if (type === TRANSACTION_TYPES.INCOME) {
+                                return cat.name === 'Salary' || cat.name === 'other'
+                            }
+                            return cat.name == 'Salary'
+                        })
+                        .map((cat) => (
                         <option key={cat.id} value={cat.id}>
                             {cat.name}
                         </option>
