@@ -174,4 +174,24 @@ a {
   .page-title {
     font-size: 20px;
   }
+
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: max-content;
+    min-width: 44px;
+    min-height: 44px;
+    gap: 6px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--color-primary);
+    color: var(--color-white);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
 }
