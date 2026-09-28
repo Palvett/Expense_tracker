@@ -3,6 +3,7 @@ import { useCategories } from "../../hooks/useCategories";
 import { useTransactions } from "../../hooks/useTransactions";
 import { TRANSACTION_TYPES } from "../../utils/constants";
 import { formatCurrency } from "../../utils/formatCurrency";
+import { getCategoriesForType } from "../../utils/categoryHelpers";
 import './TransactionForm.css'
 
 function TransactionForm({ initialData, onSuccess }) {
@@ -19,6 +20,18 @@ function TransactionForm({ initialData, onSuccess }) {
     const [ errors, setErrors ] = useState({})
     const [ isAmountFocused, setIsAmountFocused] = useState(false)
     const [ hasBlurredOnce, setHasBlurredOnce ] = useState(false)
+
+    const keepId = initialData && type === initialData.type ? initialData.categoryId : ''
+    const availableCategories = getCategoriesForType(categories, type, keepId)
+
+    function handleTypeChange(newType) {
+        const newKeepId = initialData && newType === initialData.type ? initialData.categoryId : ''
+        const allowed = getCategoriesForType(categories, newType, newKeepId)
+        if (!allowed.some((c) => c.id === categoryId)) {
+            setCategoryId('')
+        }
+        setType(newType)
+    }
 
     function validate() {
         const newErrors = {}
@@ -100,14 +113,14 @@ function TransactionForm({ initialData, onSuccess }) {
                     <button
                         type="button"
                         className={type === TRANSACTION_TYPES.EXPENSE ? 'active' : ''}
-                        onClick={() => setType(TRANSACTION_TYPES.EXPENSE)}
+                        onClick={() => handleTypeChange(TRANSACTION_TYPES.EXPENSE)}
                     >
                         Expense
                     </button>
                     <button
                         type="button"
                         className={type === TRANSACTION_TYPES.INCOME ? 'active' : ''}
-                        onClick={() => setType(TRANSACTION_TYPES.INCOME)}
+                        onClick={() => handleTypeChange(TRANSACTION_TYPES.INCOME)}
                     >
                         Income
                     </button>
@@ -140,14 +153,7 @@ function TransactionForm({ initialData, onSuccess }) {
                     onChange={(e) => setCategoryId(e.target.value)}
                 >
                     <option value="">Select a category</option>
-                    {categories
-                        .filter((cat) => {
-                            if (type === TRANSACTION_TYPES.INCOME) {
-                                return cat.name === 'Salary' || cat.name === 'other'
-                            }
-                            return cat.name == 'Salary'
-                        })
-                        .map((cat) => (
+                    {availableCategories.map((cat) => (
                         <option key={cat.id} value={cat.id}>
                             {cat.name}
                         </option>

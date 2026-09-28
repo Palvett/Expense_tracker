@@ -8,6 +8,10 @@ import ConfirmModal from "../../components/ConfirmModal"
 import ReassignModal from './ReassignModal'
 import './CategoryManager.css'
 
+const CATEGORY_TYPES = {
+    EXPENSE: 'expense',
+    INCOME: 'income'
+}
 
 function CategoryManager() {
     const { categories, addCategory, deleteCategory } = useCategories()
@@ -15,6 +19,7 @@ function CategoryManager() {
 
     const [name, setName] = useState('')
     const [color, setColor] = useState(CATEGORY_COLOR_PALETTE[0])
+    const [type, setType] = useState(CATEGORY_TYPES.EXPENSE)
     const [error, setError] = useState('')
 
     const [deletingCategory, setDeletingCategory] = useState(null)
@@ -28,9 +33,10 @@ function CategoryManager() {
             return
         }
 
-        addCategory({ name: name.trim(), color })
+        addCategory({ name: name.trim(), color, type })
         setName('')
         setColor(CATEGORY_COLOR_PALETTE[0])
+        setType(CATEGORY_TYPES.EXPENSE)
         setError('')
     }
 
@@ -69,6 +75,14 @@ function CategoryManager() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
+
+                <select
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                >
+                    <option value={CATEGORY_TYPES.EXPENSE}>Expense</option>
+                    <option value={CATEGORY_TYPES.INCOME}>Income</option>
+                </select>
 
                 <div className="color-picker">
                     {CATEGORY_COLOR_PALETTE.map((swatch) => (

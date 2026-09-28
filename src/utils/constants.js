@@ -6,12 +6,12 @@ export const TRANSACTION_TYPES = {
 }
 
 export const DEFAULT_CATEGORIES = [
-  { id: 'cat-food', name: 'Food', color: '#f97316', isDefault: true },
-  { id: 'cat-transport', name: 'Transport', color: '#3b82f6', isDefault: true },
-  { id: 'cat-rent', name: 'Rent', color: '#8b5cf6', isDefault: true },
-  { id: 'cat-entertainment', name: 'Entertainment', color: '#ec4899', isDefault: true },
-  { id: 'cat-salary', name: 'Salary', color: '#22c55e', isDefault: true },
-  { id: 'cat-other', name: 'Other', color: '#64748b', isDefault: true },
+  { id: 'cat-food', name: 'Food', color: '#f97316', type: 'expense', isDefault: true },
+  { id: 'cat-transport', name: 'Transport', color: '#3b82f6', type: 'expense', isDefault: true },
+  { id: 'cat-rent', name: 'Rent', color: '#8b5cf6', type: 'expense', isDefault: true },
+  { id: 'cat-entertainment', name: 'Entertainment', color: '#ec4899', type: 'expense', isDefault: true },
+  { id: 'cat-salary', name: 'Salary', color: '#22c55e', type: 'income', isDefault: true },
+  { id: 'cat-other', name: 'Other', color: '#64748b', type: 'both', isDefault: true },
 ]
 
 // Transaction shape:

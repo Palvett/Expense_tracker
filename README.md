@@ -67,7 +67,7 @@ Run locally
 
 ## 🔗 Live Demo
 
-Frontend:** [view the deployed app](https://expense-tracker-asyt-qi99dc4qg-the-future10.vercel.app)
+Frontend:** [view the deployed app](https://expense-tracker-omega-dusky-53.vercel.app/)
 
 🧠 Challenges Faced
 
