@@ -83,24 +83,25 @@ function CategoryManager() {
                     <option value={CATEGORY_TYPES.EXPENSE}>Expense</option>
                     <option value={CATEGORY_TYPES.INCOME}>Income</option>
                 </select>
+                <div className="category-add-controls">
+                    <div className="color-picker">
+                        {CATEGORY_COLOR_PALETTE.map((swatch) => (
+                            <button
+                                key={swatch}
+                                type="button"
+                                className={`color-swatch ${color === swatch ? 'selected' : ''}`}
+                                style={{ backgroundColor: swatch }}
+                                onClick={() => setColor(swatch)}
+                                aria-label={`Select color ${swatch}`}
+                            />
+                        ))}
+                    </div>
 
-                <div className="color-picker">
-                    {CATEGORY_COLOR_PALETTE.map((swatch) => (
-                        <button
-                            key={swatch}
-                            type="button"
-                            className={`color-swatch ${color === swatch ? 'selected' : ''}`}
-                            style={{ backgroundColor: swatch }}
-                            onClick={() => setColor(swatch)}
-                            aria-label={`Select color ${swatch}`}
-                        />
-                    ))}
+                    <button type="submit" className="btn-primary">
+                        <Plus size={16} />
+                        Add
+                    </button>
                 </div>
-
-                <button type="submit" className="btn-primary">
-                    <Plus size={16} />
-                    Add
-                </button>
             </form>
             {error && <span className="error">{error}</span>}
 
