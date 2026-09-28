@@ -124,7 +124,7 @@
 
   .category-add-controls button[type="submit"] {
     flex: 0 0 auto;
-    margin-left: auto;
+    margin: 0 auto;
   }
 
   .category-row {
