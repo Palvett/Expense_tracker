@@ -1,13 +1,11 @@
 .category-manager {
   width: 100%;
-  margin: 0 auto;
 }
 
 .category-add-controls {
   flex: 1 1 320px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
   min-width: 0;
@@ -41,11 +39,6 @@
   font-size: 14px;
   background: var(--color-input-bg);
   color: var(--color-text);
-}
-
-.category-add-form input {
-  flex: 1 1 160px;
-  min-width: 0;
 }
 
 .color-picker {
@@ -131,7 +124,7 @@
 
   .category-add-controls button[type="submit"] {
     flex: 0 0 auto;
-    margin: 0 auto;
+    margin-left: auto;
   }
 
   .category-row {
